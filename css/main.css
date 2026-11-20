@@ -1,0 +1,436 @@
+/* ============================================================================
+   css/main.css
+   Hoja de estilos única para el Portal General "Inteligencia Económica".
+   Mantiene la paleta institucional exacta del portal de IPC (IEVV).
+   ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+   1. VARIABLES GLOBALES DE COLOR Y DISEÑO
+   Cambia un valor aquí para actualizarlo en todo el portal al mismo tiempo.
+   ---------------------------------------------------------------------------- */
+:root {
+  --navy: #0f2338;       /* Azul oscuro institucional (sidebar y títulos) */
+  --navy-dark: #0b1928;  /* Degradado inferior del sidebar */
+  --navy-hover: #203b54; /* Fondo de botones activos/hover en el menú */
+  --ink: #172b3d;        /* Color principal de lectura */
+  --muted: #64748b;      /* Gris para subtítulos y descripciones */
+  --line: #e2e8f0;       /* Gris claro para bordes y separadores */
+  --bg: #f3f6f9;         /* Fondo general de la página */
+  --white: #ffffff;      /* Blanco puro para tarjetas y barras */
+  --teal: #1b7884;       /* Verde azulado institucional (logo y botones) */
+  --teal-dark: #145e68;  /* Hover del botón principal */
+  --gold: #facc15;       /* Amarillo dorado para las siglas IEVV */
+  --green-bg: #dcfce7;   /* Fondo etiqueta "Activo" */
+  --green-txt: #166534;  /* Texto etiqueta "Activo" */
+  --amber-bg: #fef3c7;   /* Fondo etiqueta "Próximamente" */
+  --amber-txt: #92400e;  /* Texto etiqueta "Próximamente" */
+  --shadow: 0 8px 26px rgba(21, 43, 64, 0.06);
+  --radius: 12px;
+}
+
+/* ----------------------------------------------------------------------------
+   2. RESET Y REGLAS BASE
+   ---------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.55;
+}
+
+/* ----------------------------------------------------------------------------
+   3. DISTRIBUCIÓN PRINCIPAL (SIDEBAR + CONTENIDO)
+   ---------------------------------------------------------------------------- */
+.app {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: 100vh;
+}
+
+/* ----------------------------------------------------------------------------
+   4. BARRA LATERAL IZQUIERDA (SIDEBAR)
+   ---------------------------------------------------------------------------- */
+.sidebar {
+  background: linear-gradient(180deg, var(--navy), var(--navy-dark));
+  color: #dce6ee;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 0 8px;
+}
+
+.brandmark {
+  width: 44px;
+  height: 38px;
+  border-radius: 11px;
+  background: var(--teal);
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  flex-shrink: 0;
+}
+
+.brand strong {
+  display: block;
+  font-size: 13.5px;
+  color: var(--white);
+  letter-spacing: 0.3px;
+}
+
+.brand small {
+  display: block;
+  font-size: 10px;
+  color: #9db2c3;
+  letter-spacing: 1.2px;
+  margin-top: 2px;
+}
+
+.author-badge {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9px;
+  padding: 10px 12px;
+  font-size: 11px;
+  color: #e2e8f0;
+}
+
+.author-badge strong {
+  display: block;
+  color: #63b3ed;
+  font-size: 11.5px;
+  margin-bottom: 2px;
+}
+
+.navlabel {
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  color: #7f98aa;
+  padding: 0 12px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.nav {
+  display: grid;
+  gap: 4px;
+}
+
+.nav button,
+.nav a.nav-link {
+  border: 0;
+  background: transparent;
+  color: #b9c9d6;
+  text-decoration: none;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 9px;
+  font: 500 12.5px/1.3 inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav button:hover,
+.nav button.active,
+.nav a.nav-link:hover {
+  background: var(--navy-hover);
+  color: var(--white);
+  font-weight: 600;
+}
+
+.sidefoot {
+  margin-top: auto;
+  border-top: 1px solid #294156;
+  padding: 14px 10px 4px;
+  font-size: 11px;
+  color: #9db2c3;
+  line-height: 1.6;
+}
+
+.sidefoot strong {
+  color: var(--white);
+}
+
+/* ----------------------------------------------------------------------------
+   5. BARRA SUPERIOR Y ÁREA DE CONTENIDO
+   ---------------------------------------------------------------------------- */
+.main-area {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  min-height: 76px;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  padding: 12px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.eyebrow {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.top-title {
+  font-size: 19px;
+  font-weight: 750;
+  color: var(--navy);
+  margin-top: 2px;
+}
+
+.period {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--navy);
+  background: #e6f4f5;
+  border: 1px solid #9fd4d9;
+  padding: 8px 14px;
+  border-radius: 9px;
+}
+
+.content {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 28px 32px 48px;
+  flex: 1;
+}
+
+.heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.heading h1 {
+  margin: 0 0 6px;
+  font-size: 25px;
+  letter-spacing: -0.4px;
+  color: var(--navy);
+}
+
+.heading p {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+.tag {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #2c5282;
+  background: #ebf8ff;
+  border: 1px solid #bee3f8;
+  border-radius: 6px;
+  padding: 6px 11px;
+  letter-spacing: 0.4px;
+}
+
+/* ----------------------------------------------------------------------------
+   6. CUADRÍCULA Y TARJETAS DE PORTALES
+   ---------------------------------------------------------------------------- */
+.portals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 20px;
+}
+
+.portal-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.portal-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(21, 43, 64, 0.10);
+  border-color: #cbd5e1;
+}
+
+.portal-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.portal-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #f1f5f9;
+  color: var(--navy);
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.badge.active {
+  background: var(--green-bg);
+  color: var(--green-txt);
+}
+
+.badge.upcoming {
+  background: var(--amber-bg);
+  color: var(--amber-txt);
+}
+
+.portal-card h2 {
+  margin: 12px 0 8px;
+  font-size: 18px;
+  color: var(--navy);
+}
+
+.portal-card p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.portal-topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.topic-pill {
+  font-size: 11px;
+  font-weight: 600;
+  color: #334155;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  padding: 4px 9px;
+  border-radius: 6px;
+}
+
+.portal-actions {
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-portal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 9px;
+  background: var(--teal);
+  color: var(--white);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 650;
+  transition: background 0.15s;
+}
+
+.btn-portal:hover {
+  background: var(--teal-dark);
+}
+
+.btn-portal.disabled {
+  background: #e2e8f0;
+  color: #64748b;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ----------------------------------------------------------------------------
+   7. PIE DE PÁGINA Y DISEÑO RESPONSIVE (CELULARES / TABLETS)
+   ---------------------------------------------------------------------------- */
+.footer {
+  font-size: 11.5px;
+  color: var(--muted);
+  text-align: right;
+  padding: 16px 32px;
+  border-top: 1px solid var(--line);
+  background: var(--white);
+}
+
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    padding: 14px 16px;
+  }
+
+  .nav {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+
+  .nav button,
+  .nav a.nav-link {
+    white-space: nowrap;
+  }
+
+  .topbar,
+  .content,
+  .footer {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .portals-grid {
+    grid-template-columns: 1fr;
+  }
+}

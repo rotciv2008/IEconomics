@@ -36,11 +36,11 @@ window.PORTALS_CATALOG = [
     id: 'mercado-inmobiliario',
     title: 'Mercado Inmobiliario',
     icon: '🏢',
-    status: 'upcoming',
-    statusLabel: 'Próximamente',
-    url: '',
+    status: 'active',
+    statusLabel: 'Activo · En vivo',
+    url: 'https://rotciv2008.github.io/realstate/',
     description:
-      'Inteligencia territorial y sectorial: evolución de precios por metro cuadrado, rentabilidad por arriendo, índices de costos de construcción y dinámica urbana.',
+      'Inteligencia territorial y sectorial: evolución de precios por metro cuadrado, índices de costos de construcción y dinámica urbana.',
     topics: ['Precios por m²', 'Valorización', 'Arriendos', 'Análisis Territorial']
   }
 ];
